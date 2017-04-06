@@ -1,0 +1,42 @@
+1		3C295
+2		3C295
+3		3C295
+4		3C295
+5		3C295
+6		3C295
+7		3C295
+8		3C286
+9		3C286
+10		tip
+11		tip
+12		tip		missing?
+13		2203+6240
+14		2203+6240
+15		2203+6240
+16		2203+6240
+17		S140		missing?
+18		S140
+19		S140		missing?
+20		S140
+21		S140		missing?
+22		S140		missing?
+23		S140
+24		S140		missing?
+25		S140
+26		S140		missing?
+27		S140		missing?
+28		S140		missing?
+29		S140		missing?
+30		S140		missing?
+31		S140		missing?
+32		S140		missing?
+33		S140
+34		S140
+35		S140		missing?
+36		S140
+37		S140
+38		S140
+39		S140		missing?
+40		S140
+41		S140
+42		S140
