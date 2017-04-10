@@ -1,0 +1,725 @@
+ 
+ 
+#######################################################
+ SCRIPT NUMBER 1, project:AGBT17A_259_03 
+ 199441 505 Glenn Jones 5 David Rose 2017-04-10 14:03:43 obs_completed 
+#######################################################
+# Setup configuration and catalog
+obspath = '/users/mabitbol/gbtobs/'
+execfile(obspath+'configurations.txt')
+Catalog(obspath+'catalog.cat')
+
+AutoPeakFocus('3C295', frequency=5000)
+Comment(configuration_lownoise)
+Configure(configuration_lownoise)
+Balance()
+#######################################################
+ LOG SESSION NUMBER 1 
+[14:03:43] ******** Begin Scheduling Block
+[14:03:43] ******** observer = Glenn Jones, SB name = Balance and Focus low noise, project ID = AGBT17A_259, date = 10 Apr 2017
+
+[14:03:44] Configuring telescope.
+[14:03:44]     Setting State: Activating
+[14:03:44]     Setting State: Aborting
+[14:03:46]     Setting State: Ready
+[14:03:47]     Setting State: Activating
+[14:03:48]     Setting State: Ready
+[14:03:48] Default values are
+[14:03:48] if3freq  =  [0]
+[14:03:48] Waiting for  Rcvr4_6 to finish activating
+[14:03:48] . .
+[14:03:48] Checking telescope
+[14:03:48] Configuration Complete
+[14:03:49] source : 3C295
+               location : J2000 @ (14:11:20.51, 52:12:09.90)
+[14:03:49] Slewing to source.
+[14:03:49] In state Ready, waiting for state Activating
+[14:03:49]     Setting State: Activating
+[14:03:49] Detected state Activating
+[14:03:49] In state Activating, waiting for state Ready
+[14:07:27]     Setting State: Ready
+[14:07:27] Detected state Ready
+[14:07:27] Balancing IF system.
+[14:07:27] Balancing IFRack
+[14:07:27]     Setting State: Activating
+[14:07:27]     Setting State: Ready
+[14:07:29] the sampler values are:
+[14:07:29] RF_power 1 : 0.01464844
+[14:07:29] RF_power 2 : 0.8398438
+[14:07:29] RF_power 3 : -0.05859375
+[14:07:29] RF_power 4 : 0.78125
+[14:07:29] RF_power 5 : 0.5419922
+[14:07:29] RF_power 6 : 0.1367188
+[14:07:29] RF_power 7 : 0.3076172
+[14:07:29] RF_power 8 : 0.1074219
+[14:07:29] Configuring telescope.
+[14:07:29]     Setting State: Activating
+[14:07:31]     Setting State: Ready
+[14:07:32]     Setting State: Activating
+[14:07:33]     Setting State: Ready
+[14:07:33] Default values are
+[14:07:33] if3freq  =  [0]
+[14:07:33] Waiting for  ActiveSurface to finish activating
+[14:07:33] . .
+[14:07:33] Checking telescope
+[14:07:33] Configuration Complete
+[14:07:34] source : 3C295
+               location : J2000 @ (14:11:20.51, 52:12:09.90)
+[14:07:34] Peak: Subscan 1 of 4
+[14:07:34] In state Ready, waiting for state Running
+[14:07:35]     Setting State: Activating
+[14:07:58]     Setting State: Committed
+[14:08:01]     Setting State: Running
+[14:08:01] Detected state Running
+[14:08:01] *** Notice: This subscan will be numbered as scan #1 in your data reduction package.
+[14:08:01] In state Running, waiting for state Ready
+[14:08:30]     Setting State: Stopping
+[14:08:33]     Setting State: Ready
+[14:08:33] Detected state Ready
+[14:08:33] Ygor Telescope: WaitForStopping
+[14:08:33] Peak: Subscan 2 of 4
+[14:08:33] In state Ready, waiting for state Running
+[14:08:34]     Setting State: Activating
+[14:08:47]     Setting State: Committed
+[14:08:49]     Setting State: Running
+[14:08:49] Detected state Running
+[14:08:49] *** Notice: This subscan will be numbered as scan #2 in your data reduction package.
+[14:08:49] In state Running, waiting for state Ready
+[14:09:19]     Setting State: Stopping
+[14:09:21]     Setting State: Ready
+[14:09:21] Detected state Ready
+[14:09:21] Ygor Telescope: WaitForStopping
+[14:09:22] *** Updating antenna's pointing to az2=-0.0805 and el=0.0000 arcmins
+
+[14:09:22] Peak: Subscan 3 of 4
+[14:09:22] In state Ready, waiting for state Running
+[14:09:23]     Setting State: Activating
+[14:09:36]     Setting State: Committed
+[14:09:38]     Setting State: Running
+[14:09:38] Detected state Running
+[14:09:38] *** Notice: This subscan will be numbered as scan #3 in your data reduction package.
+[14:09:38] In state Running, waiting for state Ready
+[14:10:08]     Setting State: Stopping
+[14:10:10]     Setting State: Ready
+[14:10:10] Detected state Ready
+[14:10:10] Ygor Telescope: WaitForStopping
+[14:10:10] Peak: Subscan 4 of 4
+[14:10:11] In state Ready, waiting for state Running
+[14:10:11]     Setting State: Activating
+[14:10:24]     Setting State: Committed
+[14:10:26]     Setting State: Running
+[14:10:26] Detected state Running
+[14:10:26] *** Notice: This subscan will be numbered as scan #4 in your data reduction package.
+[14:10:26] In state Running, waiting for state Ready
+[14:10:56]     Setting State: Stopping
+[14:10:59]     Setting State: Ready
+[14:10:59] Detected state Ready
+[14:10:59] Ygor Telescope: WaitForStopping
+[14:11:00] . *** Updating antenna's pointing to az2=-0.0805 and el=0.1130 arcmins
+
+[14:11:00] source : 3C295
+               location : J2000 @ (14:11:20.51, 52:12:09.90)
+[14:11:00] Focus: Subscan 1 of 1
+[14:11:01] In state Ready, waiting for state Running
+[14:11:01]     Setting State: Activating
+[14:11:27]     Setting State: Committed
+[14:11:29]     Setting State: Running
+[14:11:29] Detected state Running
+[14:11:29] *** Notice: This subscan will be numbered as scan #5 in your data reduction package.
+[14:11:29] In state Running, waiting for state Ready
+[14:12:29]     Setting State: Stopping
+[14:12:31]     Setting State: Ready
+[14:12:31] Detected state Ready
+[14:12:31] Ygor Telescope: WaitForStopping
+[14:12:32] . *** Updating antenna's focus to 9.57 mm
+
+[14:12:32] 
+receiver = 'Rcvr4_6'
+obstype = 'Spectroscopy'
+backend = 'VEGAS'
+restfreq = 4575, 5625, 6125, 7175
+bandwidth =  1500
+nchan = 16384
+swmode = 'tp'
+swtype = 'none'
+swper = 0.04
+tint = 0.04
+noisecal = 'lo'
+pol = 'Linear'
+vegas.vpol = 'cross'
+vframe = 'topo'
+vdef = 'Radio'
+
+[14:12:32] Configuring telescope.
+[14:12:33]     Setting State: Activating
+[14:12:52]     Setting State: Ready
+[14:12:54]     Setting State: Activating
+[14:12:55]     Setting State: Ready
+[14:12:55] WARNING: Ignoring nwin value
+[14:12:55] Default values are
+[14:12:55] if3freq  =  [0, 0, 0, 0]
+[14:12:55] Warning: total IF band > bandwidth =  4100.0
+[14:12:55]  lo2 too low needs lo2 adjustment
+[14:12:55]  lo2 too low needs lo2 adjustment
+[14:12:55] Warning: LO2 out of range, adjusting LO2 and IF1 by -251.0
+[14:12:55] Warning: total adjusted IF band > 4 GHz: bandwidth = 4498.0
+[14:12:55] Warning: more than 10% of your data will be blanked in BankA using mode 2 with bandwidth of 1500
+[14:12:55] Warning: more than 10% of your data will be blanked in BankB using mode 2 with bandwidth of 1500
+[14:12:55] Warning: more than 10% of your data will be blanked in BankC using mode 2 with bandwidth of 1500
+[14:12:55] Warning: more than 10% of your data will be blanked in BankD using mode 2 with bandwidth of 1500
+[14:12:55] Waiting for  ConverterRack to finish activating
+[14:12:55] . . . Waiting for  ScanCoordinator to finish activating
+[14:12:55] . . . . . . . . . . . . . . . . .
+[14:12:55] Checking telescope
+[14:12:55] Configuration Complete
+[14:12:55] Balancing IF system.
+[14:12:55] Balancing IFRack
+[14:12:56]     Setting State: Activating
+[14:12:56]     Setting State: Ready
+[14:12:57] the sampler values are:
+[14:12:57] RF_power 1 : 3.549805
+[14:12:57] RF_power 2 : 0
+[14:12:57] RF_power 3 : 3.330078
+[14:12:57] RF_power 4 : 0.009765625
+[14:12:57] RF_power 5 : 0.546875
+[14:12:57] RF_power 6 : 2.958984
+[14:12:57] RF_power 7 : 0.3076172
+[14:12:57] RF_power 8 : 3.24707
+[14:12:57] Balancing VEGAS
+[14:12:57]     Setting State: Activating
+[14:12:59]     Setting State: Ready
+[14:13:00]     Setting State: Activating
+[14:13:00]     Setting State: Ready
+[14:13:02]     Setting State: Activating
+[14:13:02]     Setting State: Ready
+runSuccessful: True
+[14:13:02] ******** End Scheduling Block
+[14:13:02] ******** observer = Glenn Jones, SB name = Balance and Focus low noise, project ID = AGBT17A_259
+
+how much log? 7258 id: 199441self.history: <gbt.turtle.database.History.History instance at 0x5c40908>self.history.connection: <gbt.turtle.database.TurtleConnection.TurtleConnection instance at 0x5c40680>how much converted log? 7485 
+#######################################################
+ 
+ 
+#######################################################
+ SCRIPT NUMBER 2, project:AGBT17A_259_03 
+ 199442 505 Glenn Jones 5 David Rose 2017-04-10 14:13:04 obs_completed 
+#######################################################
+obspath = '/users/mabitbol/gbtobs/'
+Catalog(obspath+'catalog.cat')
+
+OnOff('3C295', Offset('AzEl', 1.0, 0.0, cosv=True) , 60)
+
+#######################################################
+ LOG SESSION NUMBER 2 
+[14:13:04] ******** Begin Scheduling Block
+[14:13:04] ******** observer = Glenn Jones, SB name = On Off 3C295, project ID = AGBT17A_259, date = 10 Apr 2017
+
+[14:13:04] source : 3C295
+               location : J2000 @ (14:11:20.51, 52:12:09.90)
+[14:13:04] OnOff: Subscan 1 of 2
+[14:13:05] In state Ready, waiting for state Running
+[14:13:06]     Setting State: Activating
+[14:13:32]     Setting State: Committed
+[14:13:34]     Setting State: Running
+[14:13:34] Detected state Running
+[14:13:34] *** Notice: This subscan will be numbered as scan #6 in your data reduction package.
+[14:13:34] In state Running, waiting for state Ready
+[14:14:34]     Setting State: Stopping
+[14:14:36]     Setting State: Ready
+[14:14:36] Detected state Ready
+[14:14:36] Ygor Telescope: WaitForStopping
+[14:14:36] OnOff: Subscan 2 of 2
+[14:14:36] In state Ready, waiting for state Running
+[14:14:37]     Setting State: Activating
+[14:14:51]     Setting State: Committed
+[14:14:53]     Setting State: Running
+[14:14:53] Detected state Running
+[14:14:53] *** Notice: This subscan will be numbered as scan #7 in your data reduction package.
+[14:14:53] In state Running, waiting for state Ready
+[14:15:53]     Setting State: Stopping
+[14:15:55]     Setting State: Ready
+[14:15:55] Detected state Ready
+[14:15:55] Ygor Telescope: WaitForStopping
+runSuccessful: True
+[14:15:55] ******** End Scheduling Block
+[14:15:55] ******** observer = Glenn Jones, SB name = On Off 3C295, project ID = AGBT17A_259
+
+how much log? 1475 id: 199442self.history: <gbt.turtle.database.History.History instance at 0x5c40908>self.history.connection: <gbt.turtle.database.TurtleConnection.TurtleConnection instance at 0x5c40680>how much converted log? 1679 
+#######################################################
+ 
+ 
+#######################################################
+ SCRIPT NUMBER 3, project:AGBT17A_259_03 
+ 199443 505 Glenn Jones 5 David Rose 2017-04-10 14:15:56 obs_completed 
+#######################################################
+# Setup configuration and catalog
+obspath = '/users/mabitbol/gbtobs/'
+Catalog(obspath+'catalog.cat')
+
+import numpy as np
+# Observe AME region
+# Daisy Scan pattern
+total_time = 2.0 * 24.75 * 60.0
+
+map_radius = 1.5 * 60.0     # 3 degrees
+osc_period = 67.5 / 2.0            
+n_scans = np.ceil(total_time / (5.0 * 60.0))
+scan_duration = total_time / n_scans
+phi2 = 2.0 * scan_duration / osc_period
+phi1 = 3.14159265 * phi2
+
+n_scans = int(n_scans)
+for i in range(n_scans):
+    Comment('Starting scan number: ' + str(i))
+    Daisy('S140', map_radius, osc_period, i*phi1, i*phi2,
+                scan_duration, coordMode='AzEl', cos_v=False)
+#######################################################
+ LOG SESSION NUMBER 3 
+[14:15:57] ******** Begin Scheduling Block
+[14:15:57] ******** observer = Glenn Jones, SB name = Daisy Scan S140 azel small, project ID = AGBT17A_259, date = 10 Apr 2017
+
+[14:15:57] Starting scan number: 0
+[14:15:57] source : S140
+               location : J2000 @ (22:19:18.10, 63:18:49.00)
+[14:15:57] Daisy: Subscan 1 of 1
+[14:16:12] In state Ready, waiting for state Running
+[14:16:12]     Setting State: Activating
+[14:19:14]     Setting State: Committed
+[14:19:16]     Setting State: Running
+[14:19:16] Detected state Running
+[14:19:16] *** Notice: This subscan will be numbered as scan #8 in your data reduction package.
+[14:19:16] In state Running, waiting for state Ready
+[14:24:13]     Setting State: Stopping
+[14:24:15]     Setting State: Ready
+[14:24:15] Detected state Ready
+[14:24:15] Ygor Telescope: WaitForStopping
+[14:24:15] Starting scan number: 1
+[14:24:15] source : S140
+               location : J2000 @ (22:19:18.10, 63:18:49.00)
+[14:24:15] Daisy: Subscan 1 of 1
+[14:24:30] In state Ready, waiting for state Running
+[14:24:30]     Setting State: Activating
+[14:24:42]     Setting State: Committed
+[14:24:44]     Setting State: Running
+[14:24:44] Detected state Running
+[14:24:44] *** Notice: This subscan will be numbered as scan #9 in your data reduction package.
+[14:24:44] In state Running, waiting for state Ready
+[14:29:41]     Setting State: Stopping
+[14:29:43]     Setting State: Ready
+[14:29:43] Detected state Ready
+[14:29:43] Ygor Telescope: WaitForStopping
+[14:29:43] Starting scan number: 2
+[14:29:43] source : S140
+               location : J2000 @ (22:19:18.10, 63:18:49.00)
+[14:29:43] Daisy: Subscan 1 of 1
+[14:29:58] In state Ready, waiting for state Running
+[14:29:58]     Setting State: Activating
+[14:30:16]     Setting State: Committed
+[14:30:18]     Setting State: Running
+[14:30:18] Detected state Running
+[14:30:18] *** Notice: This subscan will be numbered as scan #10 in your data reduction package.
+[14:30:18] In state Running, waiting for state Ready
+[14:35:15]     Setting State: Stopping
+[14:35:17]     Setting State: Ready
+[14:35:17] Detected state Ready
+[14:35:17] Ygor Telescope: WaitForStopping
+[14:35:17] Starting scan number: 3
+[14:35:17] source : S140
+               location : J2000 @ (22:19:18.10, 63:18:49.00)
+[14:35:17] Daisy: Subscan 1 of 1
+[14:35:31] In state Ready, waiting for state Running
+[14:35:32]     Setting State: Activating
+[14:35:50]     Setting State: Committed
+[14:35:52]     Setting State: Running
+[14:35:52] Detected state Running
+[14:35:52] *** Notice: This subscan will be numbered as scan #11 in your data reduction package.
+[14:35:52] In state Running, waiting for state Ready
+[14:40:49]     Setting State: Stopping
+[14:40:51]     Setting State: Ready
+[14:40:51] Detected state Ready
+[14:40:51] Ygor Telescope: WaitForStopping
+[14:40:51] Starting scan number: 4
+[14:40:51] source : S140
+               location : J2000 @ (22:19:18.10, 63:18:49.00)
+[14:40:51] Daisy: Subscan 1 of 1
+[14:41:06] In state Ready, waiting for state Running
+[14:41:06]     Setting State: Activating
+[14:41:18]     Setting State: Committed
+[14:41:20]     Setting State: Running
+[14:41:20] Detected state Running
+[14:41:20] *** Notice: This subscan will be numbered as scan #12 in your data reduction package.
+[14:41:20] In state Running, waiting for state Ready
+[14:46:17]     Setting State: Stopping
+[14:46:19]     Setting State: Ready
+[14:46:19] Detected state Ready
+[14:46:19] Ygor Telescope: WaitForStopping
+[14:46:19] Starting scan number: 5
+[14:46:19] source : S140
+               location : J2000 @ (22:19:18.10, 63:18:49.00)
+[14:46:19] Daisy: Subscan 1 of 1
+[14:46:34] In state Ready, waiting for state Running
+[14:46:34]     Setting State: Activating
+[14:47:03]     Setting State: Committed
+[14:47:05]     Setting State: Running
+[14:47:05] Detected state Running
+[14:47:05] *** Notice: This subscan will be numbered as scan #13 in your data reduction package.
+[14:47:05] In state Running, waiting for state Ready
+[14:52:02]     Setting State: Stopping
+[14:52:04]     Setting State: Ready
+[14:52:04] Detected state Ready
+[14:52:04] Ygor Telescope: WaitForStopping
+[14:52:04] Starting scan number: 6
+[14:52:04] source : S140
+               location : J2000 @ (22:19:18.10, 63:18:49.00)
+[14:52:04] Daisy: Subscan 1 of 1
+[14:52:19] In state Ready, waiting for state Running
+[14:52:19]     Setting State: Activating
+[14:52:31]     Setting State: Committed
+[14:52:33]     Setting State: Running
+[14:52:33] Detected state Running
+[14:52:33] *** Notice: This subscan will be numbered as scan #14 in your data reduction package.
+[14:52:33] In state Running, waiting for state Ready
+[14:57:30]     Setting State: Stopping
+[14:57:32]     Setting State: Ready
+[14:57:32] Detected state Ready
+[14:57:32] Ygor Telescope: WaitForStopping
+[14:57:32] Starting scan number: 7
+[14:57:32] source : S140
+               location : J2000 @ (22:19:18.10, 63:18:49.00)
+[14:57:32] Daisy: Subscan 1 of 1
+[14:57:47] In state Ready, waiting for state Running
+[14:57:47]     Setting State: Activating
+[14:58:06]     Setting State: Committed
+[14:58:08]     Setting State: Running
+[14:58:08] Detected state Running
+[14:58:08] *** Notice: This subscan will be numbered as scan #15 in your data reduction package.
+[14:58:08] In state Running, waiting for state Ready
+[15:03:05]     Setting State: Stopping
+[15:03:07]     Setting State: Ready
+[15:03:07] Detected state Ready
+[15:03:07] Ygor Telescope: WaitForStopping
+[15:03:07] Starting scan number: 8
+[15:03:07] source : S140
+               location : J2000 @ (22:19:18.10, 63:18:49.00)
+[15:03:07] Daisy: Subscan 1 of 1
+[15:03:21] In state Ready, waiting for state Running
+[15:03:22]     Setting State: Activating
+[15:03:39]     Setting State: Committed
+[15:03:41]     Setting State: Running
+[15:03:41] Detected state Running
+[15:03:41] *** Notice: This subscan will be numbered as scan #16 in your data reduction package.
+[15:03:41] In state Running, waiting for state Ready
+[15:08:38]     Setting State: Stopping
+[15:08:40]     Setting State: Ready
+[15:08:40] Detected state Ready
+[15:08:40] Ygor Telescope: WaitForStopping
+[15:08:40] Starting scan number: 9
+[15:08:40] source : S140
+               location : J2000 @ (22:19:18.10, 63:18:49.00)
+[15:08:40] Daisy: Subscan 1 of 1
+[15:08:55] In state Ready, waiting for state Running
+[15:08:55]     Setting State: Activating
+[15:09:06]     Setting State: Committed
+[15:09:08]     Setting State: Running
+[15:09:08] Detected state Running
+[15:09:08] *** Notice: This subscan will be numbered as scan #17 in your data reduction package.
+[15:09:08] In state Running, waiting for state Ready
+[15:14:05]     Setting State: Stopping
+[15:14:07]     Setting State: Ready
+[15:14:07] Detected state Ready
+[15:14:07] Ygor Telescope: WaitForStopping
+runSuccessful: True
+[15:14:07] ******** End Scheduling Block
+[15:14:07] ******** observer = Glenn Jones, SB name = Daisy Scan S140 azel small, project ID = AGBT17A_259
+
+how much log? 6938 id: 199443self.history: <gbt.turtle.database.History.History instance at 0x5c40908>self.history.connection: <gbt.turtle.database.TurtleConnection.TurtleConnection instance at 0x5c40680>how much converted log? 7142 
+#######################################################
+ 
+ 
+#######################################################
+ SCRIPT NUMBER 4, project:AGBT17A_259_03 
+ 199444 505 Glenn Jones 5 David Rose 2017-04-10 15:14:09 obs_completed 
+#######################################################
+# Setup configuration and catalog
+obspath = '/users/mabitbol/gbtobs/'
+Catalog(obspath+'catalog.cat')
+
+import numpy as np
+# Observe AME region
+# Daisy Scan pattern
+total_time = 2.0 * 24.75 * 60.0
+
+map_radius = 1.5 * 60.0     # 3 degrees
+osc_period = 67.5 / 2.0            
+n_scans = np.ceil(total_time / (5.0 * 60.0))
+scan_duration = total_time / n_scans
+phi2 = 2.0 * scan_duration / osc_period
+phi1 = 3.14159265 * phi2
+
+n_scans = int(n_scans)
+for i in range(n_scans):
+    Comment('Starting scan number: ' + str(i))
+    Daisy('S140', map_radius, osc_period, i*phi1, i*phi2,
+                scan_duration, coordMode='AzEl', cos_v=False)
+#######################################################
+ LOG SESSION NUMBER 4 
+[15:14:09] ******** Begin Scheduling Block
+[15:14:09] ******** observer = Glenn Jones, SB name = Daisy Scan S140 azel small, project ID = AGBT17A_259, date = 10 Apr 2017
+
+[15:14:09] Starting scan number: 0
+[15:14:09] source : S140
+               location : J2000 @ (22:19:18.10, 63:18:49.00)
+[15:14:09] Daisy: Subscan 1 of 1
+[15:14:24] In state Ready, waiting for state Running
+[15:14:24]     Setting State: Activating
+[15:14:52]     Setting State: Committed
+[15:14:54]     Setting State: Running
+[15:14:54] Detected state Running
+[15:14:54] *** Notice: This subscan will be numbered as scan #18 in your data reduction package.
+[15:14:54] In state Running, waiting for state Ready
+[15:19:51]     Setting State: Stopping
+[15:19:53]     Setting State: Ready
+[15:19:53] Detected state Ready
+[15:19:53] Ygor Telescope: WaitForStopping
+[15:19:53] Starting scan number: 1
+[15:19:53] source : S140
+               location : J2000 @ (22:19:18.10, 63:18:49.00)
+[15:19:53] Daisy: Subscan 1 of 1
+[15:20:08] In state Ready, waiting for state Running
+[15:20:09]     Setting State: Activating
+[15:20:20]     Setting State: Committed
+[15:20:22]     Setting State: Running
+[15:20:22] Detected state Running
+[15:20:22] *** Notice: This subscan will be numbered as scan #19 in your data reduction package.
+[15:20:22] In state Running, waiting for state Ready
+[15:25:19]     Setting State: Stopping
+[15:25:21]     Setting State: Ready
+[15:25:21] Detected state Ready
+[15:25:21] Ygor Telescope: WaitForStopping
+[15:25:21] Starting scan number: 2
+[15:25:21] source : S140
+               location : J2000 @ (22:19:18.10, 63:18:49.00)
+[15:25:21] Daisy: Subscan 1 of 1
+[15:25:36] In state Ready, waiting for state Running
+[15:25:36]     Setting State: Activating
+[15:25:55]     Setting State: Committed
+[15:25:57]     Setting State: Running
+[15:25:57] Detected state Running
+[15:25:57] *** Notice: This subscan will be numbered as scan #20 in your data reduction package.
+[15:25:57] In state Running, waiting for state Ready
+[15:30:54]     Setting State: Stopping
+[15:30:56]     Setting State: Ready
+[15:30:56] Detected state Ready
+[15:30:56] Ygor Telescope: WaitForStopping
+[15:30:56] Starting scan number: 3
+[15:30:56] source : S140
+               location : J2000 @ (22:19:18.10, 63:18:49.00)
+[15:30:56] Daisy: Subscan 1 of 1
+[15:31:10] In state Ready, waiting for state Running
+[15:31:11]     Setting State: Activating
+[15:31:29]     Setting State: Committed
+[15:31:31]     Setting State: Running
+[15:31:31] Detected state Running
+[15:31:31] *** Notice: This subscan will be numbered as scan #21 in your data reduction package.
+[15:31:31] In state Running, waiting for state Ready
+[15:36:28]     Setting State: Stopping
+[15:36:30]     Setting State: Ready
+[15:36:30] Detected state Ready
+[15:36:30] Ygor Telescope: WaitForStopping
+[15:36:30] Starting scan number: 4
+[15:36:30] source : S140
+               location : J2000 @ (22:19:18.10, 63:18:49.00)
+[15:36:30] Daisy: Subscan 1 of 1
+[15:36:45] In state Ready, waiting for state Running
+[15:36:45]     Setting State: Activating
+[15:36:57]     Setting State: Committed
+[15:36:59]     Setting State: Running
+[15:36:59] Detected state Running
+[15:36:59] *** Notice: This subscan will be numbered as scan #22 in your data reduction package.
+[15:36:59] In state Running, waiting for state Ready
+[15:41:56]     Setting State: Stopping
+[15:41:58]     Setting State: Ready
+[15:41:58] Detected state Ready
+[15:41:58] Ygor Telescope: WaitForStopping
+[15:41:58] Starting scan number: 5
+[15:41:58] source : S140
+               location : J2000 @ (22:19:18.10, 63:18:49.00)
+[15:41:58] Daisy: Subscan 1 of 1
+[15:42:12] In state Ready, waiting for state Running
+[15:42:13]     Setting State: Activating
+[15:42:41]     Setting State: Committed
+[15:42:43]     Setting State: Running
+[15:42:43] Detected state Running
+[15:42:43] *** Notice: This subscan will be numbered as scan #23 in your data reduction package.
+[15:42:43] In state Running, waiting for state Ready
+[15:47:40]     Setting State: Stopping
+[15:47:42]     Setting State: Ready
+[15:47:42] Detected state Ready
+[15:47:42] Ygor Telescope: WaitForStopping
+[15:47:42] Starting scan number: 6
+[15:47:42] source : S140
+               location : J2000 @ (22:19:18.10, 63:18:49.00)
+[15:47:42] Daisy: Subscan 1 of 1
+[15:47:57] In state Ready, waiting for state Running
+[15:47:57]     Setting State: Activating
+[15:48:09]     Setting State: Committed
+[15:48:11]     Setting State: Running
+[15:48:11] Detected state Running
+[15:48:11] *** Notice: This subscan will be numbered as scan #24 in your data reduction package.
+[15:48:11] In state Running, waiting for state Ready
+[15:53:08]     Setting State: Stopping
+[15:53:10]     Setting State: Ready
+[15:53:10] Detected state Ready
+[15:53:10] Ygor Telescope: WaitForStopping
+[15:53:10] Starting scan number: 7
+[15:53:10] source : S140
+               location : J2000 @ (22:19:18.10, 63:18:49.00)
+[15:53:10] Daisy: Subscan 1 of 1
+[15:53:24] In state Ready, waiting for state Running
+[15:53:25]     Setting State: Activating
+[15:53:44]     Setting State: Committed
+[15:53:46]     Setting State: Running
+[15:53:46] Detected state Running
+[15:53:46] *** Notice: This subscan will be numbered as scan #25 in your data reduction package.
+[15:53:46] In state Running, waiting for state Ready
+[15:58:43]     Setting State: Stopping
+[15:58:45]     Setting State: Ready
+[15:58:45] Detected state Ready
+[15:58:45] Ygor Telescope: WaitForStopping
+[15:58:45] Starting scan number: 8
+[15:58:45] source : S140
+               location : J2000 @ (22:19:18.10, 63:18:49.00)
+[15:58:45] Daisy: Subscan 1 of 1
+[15:58:59] In state Ready, waiting for state Running
+[15:59:00]     Setting State: Activating
+[15:59:17]     Setting State: Committed
+[15:59:19]     Setting State: Running
+[15:59:19] Detected state Running
+[15:59:19] *** Notice: This subscan will be numbered as scan #26 in your data reduction package.
+[15:59:19] In state Running, waiting for state Ready
+[16:04:16]     Setting State: Stopping
+[16:04:18]     Setting State: Ready
+[16:04:18] Detected state Ready
+[16:04:18] Ygor Telescope: WaitForStopping
+[16:04:18] Starting scan number: 9
+[16:04:18] source : S140
+               location : J2000 @ (22:19:18.10, 63:18:49.00)
+[16:04:18] Daisy: Subscan 1 of 1
+[16:04:32] In state Ready, waiting for state Running
+[16:04:33]     Setting State: Activating
+[16:04:44]     Setting State: Committed
+[16:04:46]     Setting State: Running
+[16:04:46] Detected state Running
+[16:04:46] *** Notice: This subscan will be numbered as scan #27 in your data reduction package.
+[16:04:46] In state Running, waiting for state Ready
+[16:09:43]     Setting State: Stopping
+[16:09:45]     Setting State: Ready
+[16:09:45] Detected state Ready
+[16:09:45] Ygor Telescope: WaitForStopping
+runSuccessful: True
+[16:09:45] ******** End Scheduling Block
+[16:09:45] ******** observer = Glenn Jones, SB name = Daisy Scan S140 azel small, project ID = AGBT17A_259
+
+how much log? 6940 id: 199444self.history: <gbt.turtle.database.History.History instance at 0x5c40908>self.history.connection: <gbt.turtle.database.TurtleConnection.TurtleConnection instance at 0x5c40680>how much converted log? 7144 
+#######################################################
+ 
+ 
+#######################################################
+ SCRIPT NUMBER 5, project:AGBT17A_259_03 
+ 199445 505 Glenn Jones 5 David Rose 2017-04-10 16:09:47 obs_aborted 
+#######################################################
+# Setup configuration and catalog
+obspath = '/users/mabitbol/gbtobs/'
+Catalog(obspath+'catalog.cat')
+
+import numpy as np
+# Observe AME region
+# Daisy Scan pattern
+total_time = 2.0 * 24.75 * 60.0
+
+map_radius = 1.5 * 60.0     # 3 degrees
+osc_period = 67.5 / 2.0            
+n_scans = np.ceil(total_time / (5.0 * 60.0))
+scan_duration = total_time / n_scans
+phi2 = 2.0 * scan_duration / osc_period
+phi1 = 3.14159265 * phi2
+
+n_scans = int(n_scans)
+for i in range(n_scans):
+    Comment('Starting scan number: ' + str(i))
+    Daisy('S140', map_radius, osc_period, i*phi1, i*phi2,
+                scan_duration, coordMode='AzEl', cos_v=False)
+#######################################################
+ LOG SESSION NUMBER 5 
+[16:09:47] ******** Begin Scheduling Block
+[16:09:47] ******** observer = Glenn Jones, SB name = Daisy Scan S140 azel small, project ID = AGBT17A_259, date = 10 Apr 2017
+
+[16:09:47] Starting scan number: 0
+[16:09:47] source : S140
+               location : J2000 @ (22:19:18.10, 63:18:49.00)
+[16:09:47] Daisy: Subscan 1 of 1
+[16:10:02] In state Ready, waiting for state Running
+[16:10:03]     Setting State: Activating
+[16:10:31]     Setting State: Committed
+[16:10:33]     Setting State: Running
+[16:10:33] Detected state Running
+[16:10:33] *** Notice: This subscan will be numbered as scan #28 in your data reduction package.
+[16:10:33] In state Running, waiting for state Ready
+[16:15:30]     Setting State: Stopping
+[16:15:32]     Setting State: Ready
+[16:15:32] Detected state Ready
+[16:15:32] Ygor Telescope: WaitForStopping
+[16:15:32] Starting scan number: 1
+[16:15:32] source : S140
+               location : J2000 @ (22:19:18.10, 63:18:49.00)
+[16:15:32] Daisy: Subscan 1 of 1
+[16:15:47] In state Ready, waiting for state Running
+[16:15:47]     Setting State: Activating
+[16:15:59]     Setting State: Committed
+[16:16:01]     Setting State: Running
+[16:16:01] Detected state Running
+[16:16:01] *** Notice: This subscan will be numbered as scan #29 in your data reduction package.
+[16:16:01] In state Running, waiting for state Ready
+[16:20:58]     Setting State: Stopping
+[16:21:00]     Setting State: Ready
+[16:21:00] Detected state Ready
+[16:21:00] Ygor Telescope: WaitForStopping
+[16:21:00] Starting scan number: 2
+[16:21:00] source : S140
+               location : J2000 @ (22:19:18.10, 63:18:49.00)
+[16:21:00] Daisy: Subscan 1 of 1
+[16:21:14] In state Ready, waiting for state Running
+[16:21:15]     Setting State: Activating
+[16:21:33]     Setting State: Committed
+[16:21:35]     Setting State: Running
+[16:21:35] Detected state Running
+[16:21:35] *** Notice: This subscan will be numbered as scan #30 in your data reduction package.
+[16:21:35] In state Running, waiting for state Ready
+[16:26:32]     Setting State: Stopping
+[16:26:34]     Setting State: Ready
+[16:26:34] Detected state Ready
+[16:26:34] Ygor Telescope: WaitForStopping
+[16:26:34] Starting scan number: 3
+[16:26:34] source : S140
+               location : J2000 @ (22:19:18.10, 63:18:49.00)
+[16:26:34] Daisy: Subscan 1 of 1
+[16:26:48] In state Ready, waiting for state Running
+[16:26:49]     Setting State: Activating
+[16:27:07]     Setting State: Committed
+[16:27:09]     Setting State: Running
+[16:27:09] Detected state Running
+[16:27:09] *** Notice: This subscan will be numbered as scan #31 in your data reduction package.
+[16:27:09] In state Running, waiting for state Ready
+[16:29:59]     Setting State: Aborting
+[16:29:59] ygor.Telescope: WaitForRunning: Asking abort confirmation.
+[16:29:59] 
+[16:29:59] User queried: "Abort detected! Terminate block?" waiting for reply...
+[16:30:02] User replied: "Yes".
+[16:30:03] Exiting scheduling block.
+    Setting State: Ready
+runSuccessful: False
+[16:30:03] ******** End Scheduling Block
+[16:30:03] ******** observer = Glenn Jones, SB name = Daisy Scan S140 azel small, project ID = AGBT17A_259
+
+how much log? 3128 id: 199445self.history: <gbt.turtle.database.History.History instance at 0x5c40908>self.history.connection: <gbt.turtle.database.TurtleConnection.TurtleConnection instance at 0x5c40680>how much converted log? 3332 
+#######################################################
