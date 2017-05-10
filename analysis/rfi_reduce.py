@@ -60,9 +60,9 @@ def reduce_scan(filename, nchannels=512, plot=True):
 
     if plot:
         pl.figure()
-        pl.plot(flatdata, 'r')
+        pl.plot(freqs[2:-2], flatdata, 'r')
         flatdata[~mask[2:-2]] = np.nan
-        pl.plot(flatdata)
+        pl.plot(freqs[2:-2], flatdata)
         nstd = np.nanstd(flatdata)
         pl.axhline(16 * madspec, color='g')
         pl.ylim(-10*nstd, 10*nstd)
@@ -94,6 +94,7 @@ def reduce_scan(filename, nchannels=512, plot=True):
     result['freqs'] = np.nanmean(freqs.reshape(nchannels, -1), 1)
     result['weight'] = np.sum(mask.reshape(nchannels, -1).astype(int), 1)
     result['valid'] = result['weight'] > 0 
+    result['mask'] = mask
 
     for name in hdu.columns.names:
         if name not in ['DATA', 'CRVAL2','CRVAL3','TCAL']:
