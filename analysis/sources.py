@@ -28,3 +28,11 @@ def S_3C286(freqs):
 
 
 
+# data from VLA calibrator list 
+# https://science.nrao.edu/facilities/vla/observing/callist#section-1
+def S_3C245(freqs):
+    vla_Lband_20cm = 3.2
+    vla_Cband_6cm = 1.8 
+    vla_Uband_2cm = 0.0
+    
+
