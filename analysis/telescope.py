@@ -21,6 +21,18 @@ class GBT:
         freqs = (center_freq - df * (index - centerbin))[::-1]
         return freqs
         
+    def bad_frequencies(bank):
+        mask = np.ones(N, dtype=bool)
+        mask[(index % 512) == 0] = False
+        mask[if_freqs < 150.e6] = False
+        mask[if_freqs > 1400.e6] = False
+        if bank=='A':
+            mask[(freqs >= 4.225e9) & (freqs <= 4.375e9)] = False
+        if bank=='B':
+             
+            
+
+
     def get_fnames(bank, source, scantype='', session='', tail='rfireduced.npz'):
         datadir = '/data2/GBT/' 
         datadir += source + '/'
