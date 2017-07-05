@@ -47,7 +47,6 @@ def reduce_scan(filename, nchannels=512):
     if filename.split('.')[-2] == 'A':
         mask[(freqs >= 4.225e9) & (freqs <= 4.375e9)] = False
 
-    xxoff = data[::8, ::-1]
     xxoff[:, ~mask] = np.nan
 
     ratio = np.zeros(N)
@@ -62,14 +61,9 @@ def reduce_scan(filename, nchannels=512):
     msdata = np.zeros_like(xxoff)
     msdata[:, mask] = xxoff[:, mask] - np.nanmean(xxoff[:, mask], 0)
     msdata[:, ~mask] = np.nan
-    msstd = np.nanstd(msdata[:, mask], 1)
-    msdata_mad = 2 * 5. / 0.67449 * mad(msstd)
-    tbad = np.zeros(xxoff.shape[0])
-    tbad = np.abs(msstd - np.nanmean(msstd)) > msdata_mad
-    xxoff[tbad, :] = np.nan
 
     speck = np.zeros(xxoff.shape[1])
-    speck[mask] = np.nanmean((msdata[:, mask][~tbad, :]**4), 0) / np.nanmean((msdata[:, mask][~tbad, :]**2), 0)**2
+    speck[mask] = np.nanmean((msdata[:, mask]**4), 0) / np.nanmean((msdata[:, mask]**2), 0)**2
     speck[~mask] = np.nan
     speck_mad = 5. / 0.67449 * mad(speck[mask])
     bad = np.zeros_like(mask)
@@ -85,15 +79,6 @@ def reduce_scan(filename, nchannels=512):
     yxoff[:, ~mask] = np.nan
     yxon[:, ~mask] = np.nan
 
-    xxoff[tbad, :] = np.nan
-    xxon[tbad, :] = np.nan
-    yyoff[tbad, :] = np.nan
-    yyon[tbad, :] = np.nan
-    xyoff[tbad, :] = np.nan
-    xyon[tbad, :] = np.nan
-    yxoff[tbad, :] = np.nan
-    yxon[tbad, :] = np.nan
-
     result['xxoff'] = np.nanmean(xxoff.reshape(-1, nchannels, N//nchannels), 2)
     result['xxon'] = np.nanmean(xxon.reshape(-1, nchannels, N//nchannels), 2)
     result['yyoff'] = np.nanmean(yyoff.reshape(-1, nchannels, N//nchannels), 2)
@@ -103,11 +88,14 @@ def reduce_scan(filename, nchannels=512):
     result['yxoff'] = np.nanmean(yxoff.reshape(-1, nchannels, N//nchannels), 2)
     result['yxon'] = np.nanmean(yxon.reshape(-1, nchannels, N//nchannels), 2)
 
-    freqs[~mask] = np.nan
+    result['original_freqs'] = freqs
     result['freqs'] = np.nanmean(freqs.reshape(nchannels, -1), 1)
     result['nweight'] = np.sum(mask.reshape(nchannels, -1).astype(int), 1)
     result['valid'] = result['nweight'] > 0 
     result['mask'] = mask
+
+    freqs[~mask] = np.nan
+    result['weighted_freqs'] = np.nanmean(freqs.reshape(nchannels, -1), 1)
 
     for name in hdu.columns.names:
         if name not in ['DATA', 'CRVAL2','CRVAL3','TCAL']:
@@ -122,7 +110,7 @@ def reduce_scan(filename, nchannels=512):
 
 
 def run():
-    fnames = glob.glob('/data2/GBT/S140/Daisy/*/*.fits')
+    fnames = glob.glob('/data2/GBT/*/Daisy/*/*.fits')
     fnames.sort()
     for filename in fnames:
         try:
