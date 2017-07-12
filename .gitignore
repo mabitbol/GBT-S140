@@ -3,5 +3,6 @@
 *.png
 *.sh
 *.npy
+*.npz
 *.swp
 *.fits
