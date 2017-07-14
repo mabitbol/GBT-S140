@@ -29,7 +29,7 @@ def thermal_dust(nu, Ad=163.0e-6, Bd=1.51, Td=21.0):
 
 def synchrotron(nu, As=20.0, alpha=0.26):
     nu0 = 408.0e6                                     # Hz
-    synch_temp = fits.open('templates/COM_CompMap_Synchrotron-commander_0256_R2.00.fits')
+    synch_temp = fits.open('../externaldata/COM_CompMap_Synchrotron-commander_0256_R2.00.fits')
     synch_nu = synch_temp[2].data.field(0)          # GHz
     synch_nu *= 1.e9                                # Hz
     synch_I = synch_temp[2].data.field(1)           # W/Hz/sr/m^2
@@ -50,7 +50,7 @@ def ame(nu, Asd=92.0e-6, nup=19.0e9, nu0=22.8e9):
     # nu0 = 22.8e9 or 41.0e9
     # Asd2 = 18
     nup0 = 30.0e9
-    ame_temp = fits.open('templates/COM_CompMap_AME-commander_0256_R2.00.fits')
+    ame_temp = fits.open('../externaldata/COM_CompMap_AME-commander_0256_R2.00.fits')
     ame_nu = ame_temp[3].data.field(0)
     ame_nu *= 1.e9                      # Hz 
     ame_I = ame_temp[3].data.field(1)   # Jy cm^2 /sr/H
