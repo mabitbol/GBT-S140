@@ -1,6 +1,5 @@
 import numpy as np
 from scipy import interpolate
-from astropy.io import fits
 
 TCMB = 2.726 
 hplanck=6.626068e-34 
@@ -17,11 +16,10 @@ def thermal_dust(nu, Ad=163.0e-6, Bd=1.51, Td=21.0):
 def ame(nu, Asd=92.0e-6, nup=19.0e9, nu0=22.8e9):
     # nu0 = 22.8e9 or 41.0e9
     # Asd2 = 18
-    # this is slow PLZ FIX
     nup0 = 30.0e9
-    ame_temp = fits.open('../externaldata/COM_CompMap_AME-commander_0256_R2.00.fits')
-    ame_nu = ame_temp[3].data.field(0) * 1.e9
-    ame_I = ame_temp[3].data.field(1)
+    amefile = np.load('../externaldata/ame.npy')
+    ame_nu = amefile[0, :]
+    ame_I = amefile[1, :]
     fsd = interpolate.interp1d( np.log(ame_nu), np.log(ame_I), bounds_error=False, fill_value='extrapolate')
     numer_fsd = fsd( np.log( nu * nup0 / nup ))
     denom_fsd = fsd( np.log( nu0 * nup0 / nup ))
