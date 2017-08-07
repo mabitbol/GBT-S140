@@ -6,6 +6,7 @@
 *.npz
 *.swp
 *.fits
+*.pdf
 calibrations/
 datamaps/
 externaldata/
