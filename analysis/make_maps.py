@@ -178,3 +178,92 @@ def calculate_flux(bank='A', session='5', doplot=True):
     actualbeam = ( (beam/60.) * (np.pi / 180.) )**2
     print ( np.nansum(signal - np.nanmedian(nullmap)) ) * beam1arcmin / actualbeam, 'Jy'
     return ( np.nansum(signal - np.nanmedian(nullmap)) ) * beam1arcmin / actualbeam
+
+
+def calculate_sflux(bank='A', session='5', doplot=True, pixbeam=1., smth=None, removeplane=False):
+    dataf = np.load('/home/mabitbol/GBT-S140/datamaps/datamaps_'+bank+'_'+session+'.npz')
+    tmask = dataf['tmask']
+    ras = dataf['ras'][tmask]
+    decs = dataf['decs'][tmask]
+    calibrated = dataf['calibrated'][tmask]
+    
+    tmask2 = ~np.isnan(calibrated)
+    ras = ras[tmask2]
+    decs = decs[tmask2]
+    calibrated = calibrated[tmask2] 
+    
+    if bank == 'A':
+        cfreq = 4.575
+    elif bank == 'B':
+        cfreq = 5.625
+    elif bank == 'C':
+        cfreq = 6.125
+    elif bank == 'D':
+        cfreq = 7.175
+    beam = 12.6 / cfreq
+    
+    # units
+    # beam and pixbeam are in arcminutes
+    beamarea = np.pi / (4. * np.log(2)) * beam**2
+    pixelarea = pixbeam**2
+    units = pixelarea / beamarea
+    
+    # ras and decs are in degrees 
+    nrapix = int((ras.max() - ras.min()) / (pixbeam / 60.))
+    ndecpix = int((decs.max() - decs.min()) / (pixbeam / 60.))
+    
+    datamap, hits, rabins, decbins = naive_map(calibrated, ras, decs, nrapix, ndecpix) 
+    mask = hits == 0
+    signal = np.zeros_like(datamap)
+    signal[~mask] = datamap[~mask] / hits[~mask] * units
+    
+    radius = np.sqrt( (ras-rc)**2 + (decs-dc)**2)
+    
+    rmask = radius <= 1.
+    insidedata = np.zeros_like(calibrated)
+    insidedata[rmask] = 10.
+    innermap, innerhits, rabins, decbins = naive_map(insidedata, ras, decs, nrapix, ndecpix) 
+    innerregion = innermap > 0
+    
+    annulus = (radius >= 80./60.) & (radius <= 2.)
+    outerdata = np.zeros_like(calibrated)
+    outerdata[annulus] = 10.
+    outermap, outerhits, rabins, decbins = naive_map(outerdata, ras, decs, nrapix, ndecpix)
+    outerregion = outermap > 0
+    
+    if removeplane:
+        rabinsc = (rabins[1:] + rabins[:-1]) / 2.
+        decbinsc = (decbins[1:] + decbins[:-1]) / 2.
+        X, Y = np.meshgrid(rabinsc, decbinsc)
+        XX = X.flatten()
+        YY = Y.flatten()
+        Z = signal.flatten()
+        masks = ~np.isnan(Z) * (~innerregion.flatten()) * (~outerregion.flatten())
+        data = np.c_[XX[masks], YY[masks], Z[masks]]
+        data2 = np.c_[XX, YY, Z]
+        A = np.c_[data[:, 0], data[:, 1], np.ones(data.shape[0])]
+        C, _, _, _ = linalg.lstsq(A, data[:, 2])
+        res = C[0] * X + C[1] * Y + C[2]
+        signal -= res
+        
+    signal -= np.nanmedian(signal[outerregion])
+    if smth is None:
+        smth = beam
+    if smth > 0:
+        signal = gaussian_filter(signal, smth/pixbeam)
+        shits = gaussian_filter(hits, smth/pixbeam)
+        #mask = shits == 0
+    signal[mask] = np.nan
+    
+    if doplot:
+        figure()
+        pc = pcolormesh(rabins, decbins, signal)
+        clim(-0.1*units, 0.1*units)
+        cb = colorbar()
+        xlabel('RA [degrees]')
+        ylabel('DEC [degrees]')
+        cb.set_label('Flux [Jy/pixel]')
+        title('Bank '+bank)
+        savefig('figures/map'+bank+session+'gradientremoved')
+
+    return np.nansum(signal[innerregion])#, rabins, decbins, signal
