@@ -100,11 +100,16 @@ def aperture_photometry_gbt(bank='A', session='5', rc=107.2, dc=5.2, rad=1., pix
     return np.nansum(signal[innerregion])
 
 
-def aperture_photometry_cgps(rc=107.2, dc=5.2, rad=1.):
+def aperture_photometry_cgps(rc=107.2, dc=5.2, rad=1., smooth=False, smoothing=1.):
     z = np.load('../externaldata/cgps.npz')
     dlons = z['lons']
     dlats = z['lats']
     dsig = z['signal']
+
+    if smooth:
+        smoothing = smoothing * 60.
+        dsig = gaussian_filter(dsig, smoothing)
+        print "smoothing isn't done right, the pixels are rectangular"
 
     data = dsig.flatten()
     area = (((dlons.max() - dlons.min())/256)**2 + ((dlats.max() - dlats.min())/256)**2) * d2r * d2r
@@ -132,7 +137,7 @@ def aperture_photometry_cgps(rc=107.2, dc=5.2, rad=1.):
     return np.sum(rdata - adata)
 
 
-def aperture_photometry_planck(freq, rc=107.2, dc=5.2, rad=1.):
+def aperture_photometry_planck(freq, rc=107.2, dc=5.2, rad=1., smooth=False, smoothing=1.):
     if freq == '30':
         planck = '../externaldata/LFI_SkyMap_030-field-IQU_1024_R2.01_full.fits'
         nu = 28.5e9
@@ -159,6 +164,8 @@ def aperture_photometry_planck(freq, rc=107.2, dc=5.2, rad=1.):
         nu = 857.e9
 
     planckmap = hp.read_map(planck, verbose=False)
+    if smooth:
+        planckmap = hp.ud_grade(hp.smoothing(planckmap, fwhm=smoothing*d2r, verbose=False), 512)
     x = np.copy(planckmap)
     nside = hp.get_nside(x)
     
