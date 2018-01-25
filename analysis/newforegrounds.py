@@ -13,7 +13,7 @@ def synch_rad1(nu, As=288., alps=-0.82):
     nu0s = 100.e9
     return As * (nu / nu0s) ** alps
 
-def freefree_rad(nu, EM=1.6, Te=140.):
+def freefree_rad(nu, EM=1.6, Te=7000.):
     Teff = (Te / 1.e3) ** (3. / 2)
     nuff = 255.33e9 * Teff
     gff = 1. + np.log(1. + (nuff / nu) ** (np.sqrt(3) / np.pi))
