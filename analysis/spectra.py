@@ -121,13 +121,14 @@ class AperturePhotometry:
         self.planckfiles = ['../externaldata/planck_smoothed_28.fits', \
                            '../externaldata/planck_smoothed_44.fits', \
                            '../externaldata/planck_smoothed_70.fits', \
+                           '../externaldata/planck_smoothed_100.fits', \
                            '../externaldata/planck_smoothed_143.fits', \
                            '../externaldata/planck_smoothed_217.fits', \
                            '../externaldata/planck_smoothed_353.fits', \
                            '../externaldata/planck_smoothed_545.fits', \
                            '../externaldata/planck_smoothed_857.fits']
-        self.planckfreqs = np.array([28.4, 44.1, 70.4, 143., 217., 353., 545., 857.]) * 1e9
-        self.planckbeams = np.array([32.3, 27.1, 13.3, 7.3, 5., 4.8, 4.7, 4.3])
+        self.planckfreqs = np.array([28.4, 44.1, 70.4, 100., 143., 217., 353., 545., 857.]) * 1e9
+        self.planckbeams = np.array([32.3, 27.1, 13.3, 9.7, 7.3, 5., 4.8, 4.7, 4.3])
 
         self.irisfiles = ['../externaldata/iris_smoothed_25000.fits', \
                          '../externaldata/iris_smoothed_12000.fits', \
